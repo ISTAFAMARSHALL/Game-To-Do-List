@@ -37,7 +37,6 @@ function App() {
     )
   }) 
 
-
   return (
     <div className="App">
       <Router>
@@ -45,7 +44,7 @@ function App() {
         <Navbar></Navbar>
         <Switch>
           <Route path="/games/:id">
-            <GameDetails/>
+            <GameDetails />
           </Route>
           <Route path="/games">
             {gamecards}
