@@ -2,6 +2,8 @@ import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Header from './Navigation.js/Header';
 import Navbar from './Navigation.js/Navbar';
+import Home from './Navigation.js/Home';
+import Footer from './Navigation.js/Footer';
 import GameDetails from './GameContainer.js/GameDetails';
 import GameCards from './GameContainer.js/GameCards';
 import GenreDetails from './GenreContainer.js/GenreDetails';
@@ -26,9 +28,11 @@ function App() {
           <Route path="/genres">
             <GenreCards/>
           </Route>
-
-
+          <Route path="/">
+            <Home/>
+          </Route>
         </Switch>
+        <Footer/>
       </Router>
     </div>
   );
