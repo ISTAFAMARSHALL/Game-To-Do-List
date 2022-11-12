@@ -1,10 +1,13 @@
 import React from 'react'
 
-function GenreCards() {
+function GenreCards({genre,handleGenreDetails}) {
 
 
   return (
-    <div>GenreCards</div>
+    <div>
+      <ol>{genre.name}</ol>
+      <button onClick={() => handleGenreDetails(genre)}>Details</button>
+    </div>
   )
 }
 

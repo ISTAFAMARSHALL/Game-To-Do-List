@@ -3,6 +3,8 @@ import { useParams, useHistory } from 'react-router-dom'
 
 function GameDetails({gameDetail}) {
 
+
+
   return (
     <div>Details
       <h2>{gameDetail.name}</h2>

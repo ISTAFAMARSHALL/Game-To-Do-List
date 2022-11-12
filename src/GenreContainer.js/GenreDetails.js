@@ -1,10 +1,21 @@
 import React from 'react'
 
-function GenreDetails() {
+function GenreDetails({genreDetail}) {
 
+  console.log(genreDetail.games)
+
+  const games = genreDetail.games.map((e) => { 
+    return (
+      <li key={e.name}>{e.name} </li>
+    )
+
+  })
 
   return (
-    <div>GenreDetails</div>
+    <div>
+      <h2>{genreDetail.name}</h2>
+      <p>{games}</p>
+    </div>
   )
 }
 

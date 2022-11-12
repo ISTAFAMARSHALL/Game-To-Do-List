@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-function GameCards({game, handleDetails}) {
+function GameCards({game, handleGameDetails}) {
   return (
     <div>
       <ol>{game.name}</ol>
-      <button onClick={() => handleDetails(game)}>Details</button>
+      <button onClick={() => handleGameDetails(game)}>Details</button>
     </div>
   )
 }
