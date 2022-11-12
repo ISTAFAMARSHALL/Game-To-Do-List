@@ -15,6 +15,7 @@ function App() {
 
   const [games , setGames] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [gameDetail, setGameDetail] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9290/games")
@@ -40,9 +41,9 @@ function App() {
 
   const history = useHistory();
 
-  function handleDetails(game_id){
-    history.push()
-    console.log(game_id)
+  function handleDetails(game){
+    history.push(`/games/${game.id}`)
+    setGameDetail(game)
   }
 
   return (
@@ -52,7 +53,7 @@ function App() {
         <Navbar></Navbar>
         <Switch>
           <Route path="/games/:id">
-            <GameDetails />
+            <GameDetails gameDetail={gameDetail} />
           </Route>
           <Route path="/games">
             {gamecards}
