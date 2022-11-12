@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import Header from './Navigation.js/Header';
 import Navbar from './Navigation.js/Navbar';
 import Home from './Navigation.js/Home';
@@ -9,6 +9,7 @@ import GameCards from './GameContainer.js/GameCards';
 import GenreDetails from './GenreContainer.js/GenreDetails';
 import GenreCards from './GenreContainer.js/GenreCards';
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
 
 function App() {
 
@@ -16,14 +17,14 @@ function App() {
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9291/games")
+    fetch("http://localhost:9290/games")
     .then(r => r.json())
     .then((data) => setGames(data))
     .catch((error) => alert(error))
   }, [])
 
   useEffect(() => {
-    fetch("http://localhost:9291/genres")
+    fetch("http://localhost:9290/genres")
     .then(r => r.json())
     .then((data) => setGenres(data))
     .catch((error) => alert(error))
@@ -32,14 +33,21 @@ function App() {
   const gamecards = games.map((game) => {
     return (
       <div key={game.id}>
-        <GameCards game={game}/>
+        <GameCards game={game} handleDetails={handleDetails}/>
       </div>
     )
   }) 
 
+  const history = useHistory();
+
+  function handleDetails(game_id){
+    history.push()
+    console.log(game_id)
+  }
+
   return (
     <div className="App">
-      <Router>
+      
         <Header></Header>
         <Navbar></Navbar>
         <Switch>
@@ -60,7 +68,7 @@ function App() {
           </Route>
         </Switch>
         <Footer/>
-      </Router>
+      
     </div>
   );
 }

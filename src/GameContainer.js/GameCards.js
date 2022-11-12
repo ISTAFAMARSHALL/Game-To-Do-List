@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 
-function GameCards({game}) {
+
+function GameCards({game, handleDetails}) {
   return (
     <div>
       <ol>{game.name}</ol>
-      <Link to={`/games/${game.id}`}><button>Details</button></Link>
+      <button onClick={() => handleDetails(game.id)}>Details</button>
     </div>
   )
 }
