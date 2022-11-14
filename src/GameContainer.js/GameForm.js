@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function GameForm({HandleAddGame}) {
+function GameForm({HandleAddGame, genres}) {
 
     const [gameName, setgameName] = useState();
     const [gameScore, setgameScore] = useState();
@@ -47,19 +47,13 @@ function GameForm({HandleAddGame}) {
       required placeholder='Enter Game Name Here'
       onChange={(e) => setgameName(e.target.value)}
     />
-    <input 
-      type="text" 
-      name="gameInfo" 
-      value={genreId}
-      required placeholder='Enter Genre ID Here'
-      onChange={(e) => setGenreId(e.target.value)}
-    />
-    <select 
-            type="text" 
-            name="gameInfo" 
-            value={gameScore}
-            placeholder='Game Score'
-            onChange={(e) => setgameScore(e.target.value)}>
+    <select onChange={(e) => setGenreId(e.target.value)}>
+                Select your Genre
+            {genres.map((genre) => <option value ={genre.nam} key={genre.name}>{`${genre.name}`}</option>)}
+    </select>
+    <select onChange={(e) => setgameScore(e.target.value)}>
+            Game Score
+        <option value="Unrated">Unrated</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -67,26 +61,20 @@ function GameForm({HandleAddGame}) {
         <option value="5">5</option>
     </select>
     <input 
-      type="text" 
-      name="gameInfo" 
+      type="text"
       value={gameCompletionPercentage}
       placeholder='Enter Completion Percentage Here'
       onChange={(e) => setgameCompletionPercentage(e.target.value)}
     />
-    <select 
-            type="text" 
-            name="gameInfo" 
-            value={gamePlatinum}
-            placeholder='Platinum Trophy Achieved'
-            onChange={(e) => setgamePlatinum(e.target.value)}>
+    <select onChange={(e) => setgamePlatinum(e.target.value)}>
+            Platinum Trophy Achieved
         <option value="False">False</option>
         <option value="True">True</option>
     </select>
     <input 
       type="text" 
-      name="gameInfo" 
       value={gameComment}
-      placeholder='Enter Comments Here'
+      placeholder='Enter Your Comments Here'
       onChange={(e) => setgameComment(e.target.value)}
     />
     <input type="submit" value="Save" />
