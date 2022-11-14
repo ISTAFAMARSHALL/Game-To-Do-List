@@ -4,7 +4,10 @@ function Footer() {
 
 
   return (
-    <footer>Footer</footer>)
+    <footer>
+      <span>My Gaming Todo List</span>
+      <span>Istafa Anthony Marsahll</span>
+    </footer>)
 }
 
 export default Footer
