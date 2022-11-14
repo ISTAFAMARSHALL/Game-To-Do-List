@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+#navbar {
+  font-style: italic;
+  color: black;
+  font-size: 100%;
+  padding: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+ }
+
+ button {
+  font-size: x-large;
+  color: black;
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  border-width: thin;
+  border-style: groove;
+}
+
+button:hover, #button:hover {
+  color: red;
+  border-width: thick;
+  border-style: groove;
+}
