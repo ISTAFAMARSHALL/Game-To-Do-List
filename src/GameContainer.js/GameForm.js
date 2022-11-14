@@ -31,11 +31,12 @@ function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
         })
           .then((r) => r.json())
           .then((newGame) => HandleAddGame(newGame));
-          // setgameName("")
-          // setgameScore("")
-          // setgameCompletionPercentage("")
-          // setgamePlatinum("")
-          // setgameComment("")
+          setgameName("")
+          setgameScore("")
+          setgameCompletionPercentage("")
+          setgamePlatinum("")
+          setgameComment("")
+          setGenreId("")
           setGameForm(!gameform) 
       }
 
