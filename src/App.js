@@ -10,6 +10,7 @@ import GenreDetails from './GenreContainer.js/GenreDetails';
 import GenreCards from './GenreContainer.js/GenreCards';
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom'
+import GameForm from './GameContainer.js/GameForm';
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
   const [genres, setGenres] = useState([]);
   const [gameDetail, setGameDetail] = useState([]);
   const [genreDetail, setGenreDetail] = useState([]);
+  const [gameform, setGameForm] = useState(true);
+  const [genreform, setGenreForm] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:9290/games")
@@ -93,16 +96,25 @@ function App() {
           </Route>
           <Route path="/games">
             <h2>Games</h2>
-            <h2>➕</h2>
-            {gamecards}
+            <h2 onClick={() => setGameForm((gameform) => !gameform)}>➕</h2>
+            {gameform ? (
+              <div> {gamecards}</div>
+              ): (
+              <GameForm/>
+            )}
+
           </Route>
           <Route path="/genres/:id">
             <GenreDetails genreDetail={genreDetail}/>
           </Route>
           <Route path="/genres">
             <h2>Genres</h2>
-            <h2>➕</h2>
-            {genrecards}
+            <h2 onClick={() => setGenreForm((genreform) => !genreform)}>➕</h2>
+            {genreform ? (
+              <div> {genrecards}</div>
+              ): (
+              <GameForm/>
+            )}
           </Route>
           <Route path="/">
             <Home/>
