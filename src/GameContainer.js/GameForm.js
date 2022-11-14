@@ -20,8 +20,7 @@ function GameForm({HandleAddGame}) {
 
     function handleAddNewGame(e) {
         e.preventDefault();
-        console.log(newGameInfo)
-    
+
         fetch("http://localhost:9290/games", {
           method: "POST",
           headers: {

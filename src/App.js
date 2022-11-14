@@ -39,7 +39,6 @@ function App() {
     .catch((error) => alert(error))
   }, [])
 
-  console.log(games)
   const gamecards = games.map((game) => {
     return (
       <div key={game.id}>
@@ -80,15 +79,19 @@ function App() {
   }
   
   function HandleUpdategame(updatedGameInfo){
-    console.log("HI",updatedGameInfo)
+    console.log("HI", updatedGameInfo)
+    const deletedGame = games.filter((e) => e.id !== parseInt(updatedGameInfo.id));
+    setGames([...deletedGame, updatedGameInfo]);
   }
 
-  function HandleAddGame(gameDetail){
-    console.log("HI")
+  function HandleAddGame(newGame){
+    console.log("HI",newGame)
+    setGames([...games, newGame ])
   }
 
-  function HandleAddGenre(gameDetail){
-    console.log("HI")
+  function HandleAddGenre(newGenre){
+    console.log("HI",newGenre)
+    setGenres([...genres, newGenre ])
   }
 
   return (

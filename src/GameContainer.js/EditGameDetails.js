@@ -20,7 +20,6 @@ function EditGameDetalis({gameDetail, HandleUpdategame}) {
 
   function handleGameUpdate(e) {
     e.preventDefault();
-    console.log(updatedGameInfo)
 
     fetch(`http://localhost:9290/games/${gameDetail.id}`, {
       method: "PATCH",
