@@ -9,6 +9,7 @@ function EditGameDetalis({gameDetail, HandleUpdategame}) {
   const [gameComment, setgameComment] = useState(gameDetail.comment);
 
   const updatedGameInfo ={
+    id: gameDetail.id,
     name: gameName,
     genre_id: gameDetail.genre_id,
     score: gameScore,
@@ -26,9 +27,7 @@ function EditGameDetalis({gameDetail, HandleUpdategame}) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        body: updatedGameInfo,
-      }),
+      body: JSON.stringify(updatedGameInfo),
     })
       .then((r) => r.json())
       .then((updatedGameInfo) => HandleUpdategame(updatedGameInfo));

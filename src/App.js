@@ -39,6 +39,7 @@ function App() {
     .catch((error) => alert(error))
   }, [])
 
+  console.log(games)
   const gamecards = games.map((game) => {
     return (
       <div key={game.id}>
@@ -78,8 +79,8 @@ function App() {
     console.log(gameDetail)
   }
   
-  function HandleUpdategame(gameDetail){
-    console.log("HI")
+  function HandleUpdategame(updatedGameInfo){
+    console.log("HI",updatedGameInfo)
   }
 
   function HandleAddGame(gameDetail){
