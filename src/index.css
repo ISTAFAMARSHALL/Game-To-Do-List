@@ -40,6 +40,7 @@ footer {
   font-style: italic;
   color: black;
   font-size: 250%;
+  margin-bottom: auto;
  }
 
  span {
@@ -47,6 +48,27 @@ footer {
  }
 
  #about {
-  margin-top: 500px;
-  margin-bottom: 500px;
+  margin-top: 100px;
+  margin-bottom: 100px;
  }
+
+ /* input, select, option {
+  background-color: transparent;
+  color: black;
+  border-width: thin;
+  border-style: groove;
+  width: 400px;
+  text-decoration-color: black;
+} */
+
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+input {
+  text-align: center;
+}
+

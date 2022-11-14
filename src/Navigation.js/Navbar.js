@@ -2,29 +2,37 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 
 
-function Navbar() {
+function Navbar({gameform, setGameForm, genreform,setGenreForm}) {
   return (
     <div id='navbar'>
       
         <NavLink className="button"
             exact 
             to="/"
-          ><button >Home</button></NavLink>
+          ><button onClick={() => {
+            setGenreForm("true")
+            setGameForm("true")}} >Home</button></NavLink>
 
         <NavLink className="button"
               exact
               to="/genres"
-            ><button >Genres</button></NavLink>
+            ><button onClick={() => {
+              setGenreForm("true")
+              setGameForm("true")}} >Genres</button></NavLink>
 
         <NavLink className="button"
               exact
               to="/games"
-            ><button >Games</button></NavLink>
+            ><button onClick={() => {
+              setGenreForm("true")
+              setGameForm("true")}} >Games</button></NavLink>
 
           <NavLink className="button"
               exact
               to="/about"
-            ><button >About</button></NavLink>
+            ><button onClick={() => {
+              setGenreForm("true")
+              setGameForm("true")}}>About</button></NavLink>
     </div>    
   )
 }

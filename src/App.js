@@ -95,7 +95,7 @@ function App() {
   return (
     <div className="App">
         <Header></Header>
-        <Navbar></Navbar>
+        <Navbar setGameForm={setGameForm} gameform={gameform} genreform={genreform} setGenreForm={setGenreForm}></Navbar>
         <Switch>
           <Route path="/games/:id">
             <GameDetails gameDetail={gameDetail} handleGameDelete={handleGameDelete} HandleUpdategame={HandleUpdategame}/>

@@ -37,25 +37,25 @@ function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
           setgamePlatinum("")
           setgameComment("")
           setGenreId("")
-          setGameForm(!gameform) 
+          setGameForm(!gameform)
       }
 
 
   return (
-    <form onSubmit={handleAddNewGame}>
+    <form id='form' onSubmit={handleAddNewGame}>
     
     Game Name:
-    <input 
+    <input
       type="text" 
       name="gameInfo" 
       value={gameName}
       required placeholder='Enter Game Name Here'
       onChange={(e) => setgameName(e.target.value)}
-    />
+    /> 
 
     Select your Genre
     <select onChange={(e) => setGenreId(e.target.value)}>
-        {genres.map((genre) => <option value={genreId} key={genre.name}>{`${genre.name}`}</option>)}
+        {genres.map((genre) => <option value={genreId} key={genre.id}>{`${genre.name}`}</option>)}
     </select>
 
     Game Score
