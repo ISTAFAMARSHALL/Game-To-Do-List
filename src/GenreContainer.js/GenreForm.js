@@ -27,7 +27,7 @@ const GenreForm = ({HandleAddGenre, genreform, setGenreForm}) => {
 
   return (
     <form onSubmit={handleAddNewGenre}>
-      <div>
+      <div id='display'>
         <label>Genre Name: </label>
         <input 
           type="text" 

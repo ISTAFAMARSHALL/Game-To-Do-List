@@ -9,9 +9,9 @@ function GameDetails({gameDetail, handleGameDelete, HandleUpdategame}) {
 
 
   return (
-    <div id='display'>
+    <div >
       {editDetail ? (
-            <div>
+            <div id='display'>
               <h2>{gameDetail.name}          
                 <span onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</span>
               </h2>

@@ -42,10 +42,10 @@ function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
 
 
   return (
-    <form id='form' onSubmit={handleAddNewGame}>
+    <form id='display' onSubmit={handleAddNewGame}>
 
     <div>
-      <label>Game Name: </label>
+      <label>Game Name </label>
         <input
           type="text" 
           name="gameInfo" 
