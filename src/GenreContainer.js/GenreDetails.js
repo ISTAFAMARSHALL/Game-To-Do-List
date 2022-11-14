@@ -10,7 +10,7 @@ function GenreDetails({genreDetail}) {
   })
 
   return (
-    <div>
+    <div id='display' >
       <h2>{genreDetail.name}</h2>
       <p>{games}</p>
     </div>

@@ -43,52 +43,64 @@ function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
 
   return (
     <form id='form' onSubmit={handleAddNewGame}>
-    
-    Game Name:
-    <input
-      type="text" 
-      name="gameInfo" 
-      value={gameName}
-      required placeholder='Enter Game Name Here'
-      onChange={(e) => setgameName(e.target.value)}
-    /> 
 
-    Select your Genre
-    <select onChange={(e) => setGenreId(e.target.value)}>
-        {genres.map((genre) => <option value={genreId} key={genre.id}>{`${genre.name}`}</option>)}
-    </select>
+    <div>
+      <label>Game Name: </label>
+        <input
+          type="text" 
+          name="gameInfo" 
+          value={gameName}
+          required placeholder='Enter Game Name Here'
+          onChange={(e) => setgameName(e.target.value)}
+        />
+    </div>
 
-    Game Score
-    <select onChange={(e) => setgameScore(e.target.value)}>
-        <option value="Unrated">Unrated</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
+    <div>
+      <label>Select your Genre </label>
+        <select onChange={(e) => setGenreId(e.target.value)}>
+            {genres.map((genre) => <option value={genreId} key={genre.id}>{`${genre.name}`}</option>)}
+        </select>
+    </div>
 
-    Completion Percentage
-    <input 
-      type="text"
-      value={gameCompletionPercentage}
-      placeholder='Enter Completion Percentage Here'
-      onChange={(e) => setgameCompletionPercentage(e.target.value)}
+    <div>
+      <label>Game Score </label>
+        <select onChange={(e) => setgameScore(e.target.value)}>
+            <option value="Unrated">Unrated</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+
+    <div>
+      <label>Completion Percentage </label>
+        <input 
+          type="text"
+          value={gameCompletionPercentage}
+          placeholder='Enter Completion Percentage Here'
+          onChange={(e) => setgameCompletionPercentage(e.target.value)}
+        />
+    </div>
+
+    <div>
+      <label>Completion Percentage </label>
+        <select onChange={(e) => setgamePlatinum(e.target.value)}>
+            <option value="False">False</option>
+            <option value="True">True</option>
+        </select>
+    </div>
+
+    <div>
+      <label>Comments </label>
+        <input 
+          type="text" 
+          value={gameComment}
+          placeholder='Enter Your Comments Here'
+          onChange={(e) => setgameComment(e.target.value)}
     />
-
-    Platinum Trophy Achieved
-    <select onChange={(e) => setgamePlatinum(e.target.value)}>
-        <option value="False">False</option>
-        <option value="True">True</option>
-    </select>
-
-    Comments
-    <input 
-      type="text" 
-      value={gameComment}
-      placeholder='Enter Your Comments Here'
-      onChange={(e) => setgameComment(e.target.value)}
-    />
+    </div>
 
     <input type="submit" value="Save" />
 

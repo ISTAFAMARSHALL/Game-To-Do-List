@@ -102,7 +102,7 @@ function App() {
           </Route>
           <Route path="/games">
               <h2>Games
-                <span onClick={() => setGameForm((gameform) => !gameform)}>➕</span>
+                <span id='add' onClick={() => setGameForm((gameform) => !gameform)}>Add➕</span>
               </h2>
             {gameform ? (
               <div> {gamecards}</div>
@@ -115,7 +115,7 @@ function App() {
           </Route>
           <Route path="/genres">
               <h2>Genres
-              <span onClick={() => setGenreForm((genreform) => !genreform)}>➕</span>
+              <span id='add' onClick={() => setGenreForm((genreform) => !genreform)}>Add➕</span>
               </h2>
             {genreform ? (
               <div> {genrecards}</div>

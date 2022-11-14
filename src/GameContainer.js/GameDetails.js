@@ -9,11 +9,11 @@ function GameDetails({gameDetail, handleGameDelete, HandleUpdategame}) {
 
 
   return (
-    <div>
+    <div id='display'>
       {editDetail ? (
             <div>
               <h2>{gameDetail.name}          
-                <a onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</a>
+                <span onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</span>
               </h2>
               <p>{gameDetail.genre_id}</p>
               <p>{gameDetail.score}</p>
@@ -23,9 +23,9 @@ function GameDetails({gameDetail, handleGameDelete, HandleUpdategame}) {
               <button onClick={() => handleGameDelete(gameDetail)}>Delete Game ❌</button>
             </div>
       ) : (
-          <div>
+          <div id='display'>
             <h2>{gameDetail.name}          
-              <a onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</a>
+              <span onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</span>
             </h2>
             <EditGameDetalis gameDetail={gameDetail} HandleUpdategame={HandleUpdategame}/>
           </div>

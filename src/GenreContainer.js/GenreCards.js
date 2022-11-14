@@ -5,7 +5,7 @@ function GenreCards({genre,handleGenreDetails}) {
 
   return (
     
-    <div>
+    <div id='display'>
       <ol onClick={() => handleGenreDetails(genre)}>{genre.name}</ol>
     </div>
   )

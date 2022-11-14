@@ -27,15 +27,16 @@ const GenreForm = ({HandleAddGenre, genreform, setGenreForm}) => {
 
   return (
     <form onSubmit={handleAddNewGenre}>
-      Genre Name
-      <input 
-        type="text" 
-        value={genreName}
-        required placeholder='Enter Genre Name Here'
-        onChange={(e) => setGenreName(e.target.value)}
+      <div>
+        <label>Genre Name: </label>
+        <input 
+          type="text" 
+          value={genreName}
+          required placeholder='Enter Genre Name Here'
+          onChange={(e) => setGenreName(e.target.value)}
       />
-
-    <input type="submit" value="Save" />
+        <input type="submit" value="Save" />
+      </div>
 
   </form>
   )
