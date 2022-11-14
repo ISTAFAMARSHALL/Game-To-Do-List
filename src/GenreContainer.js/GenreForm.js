@@ -34,6 +34,7 @@ const GenreForm = ({HandleAddGenre}) => {
       type="text" 
       name="gameInfo"
       value={genreName}
+      required placeholder='Enter Genre Name Here'
       onChange={(e) => setGenreName(e.target.value)}
     />
     {/* <input 

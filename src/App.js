@@ -81,22 +81,21 @@ function App() {
   function HandleUpdategame(updatedGameInfo){
     console.log("HI", updatedGameInfo)
     const deletedGame = games.filter((e) => e.id !== parseInt(updatedGameInfo.id));
-    setGames([...deletedGame, updatedGameInfo]);
+    setGames([ updatedGameInfo, ...deletedGame ]);
   }
 
   function HandleAddGame(newGame){
     console.log("HI",newGame)
-    setGames([...games, newGame ])
+    setGames([ newGame, ...games ])
   }
 
   function HandleAddGenre(newGenre){
     console.log("HI",newGenre)
-    setGenres([...genres, newGenre ])
+    setGenres([ newGenre, ...genres ])
   }
 
   return (
     <div className="App">
-      
         <Header></Header>
         <Navbar></Navbar>
         <Switch>
@@ -104,21 +103,22 @@ function App() {
             <GameDetails gameDetail={gameDetail} handleGameDelete={handleGameDelete} HandleUpdategame={HandleUpdategame}/>
           </Route>
           <Route path="/games">
-            <h2>Games</h2>
-            <h2 onClick={() => setGameForm((gameform) => !gameform)}>➕</h2>
+              <h2>Games
+                <a onClick={() => setGameForm((gameform) => !gameform)}>➕</a>
+              </h2>
             {gameform ? (
               <div> {gamecards}</div>
               ): (
               <GameForm HandleAddGame={HandleAddGame}/>
             )}
-
           </Route>
           <Route path="/genres/:id">
             <GenreDetails genreDetail={genreDetail}/>
           </Route>
           <Route path="/genres">
-            <h2>Genres</h2>
-            <h2 onClick={() => setGenreForm((genreform) => !genreform)}>➕</h2>
+              <h2>Genres
+              <a onClick={() => setGenreForm((genreform) => !genreform)}>➕</a>
+              </h2>
             {genreform ? (
               <div> {genrecards}</div>
               ): (
