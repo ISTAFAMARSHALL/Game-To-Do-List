@@ -1,7 +1,6 @@
 import React from 'react'
-import { useParams, useHistory } from 'react-router-dom'
 
-function GameDetails({gameDetail}) {
+function GameDetails({gameDetail,handleGameDelete}) {
 
 
 
@@ -13,6 +12,7 @@ function GameDetails({gameDetail}) {
       <p>{gameDetail.completion_percentage}</p>
       <p>{gameDetail.platinum}</p>
       <p>{gameDetail.comment}</p>
+      <button onClick={() => handleGameDelete(gameDetail)}>Delete Game ❌</button>
     </div>
   )
 }

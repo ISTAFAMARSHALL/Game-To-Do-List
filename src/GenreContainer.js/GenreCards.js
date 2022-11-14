@@ -4,9 +4,9 @@ function GenreCards({genre,handleGenreDetails}) {
 
 
   return (
+    
     <div>
-      <ol>{genre.name}</ol>
-      <button onClick={() => handleGenreDetails(genre)}>Details</button>
+      <ol onClick={() => handleGenreDetails(genre)}>{genre.name}</ol>
     </div>
   )
 }

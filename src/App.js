@@ -46,7 +46,7 @@ function App() {
   const genrecards = genres.map((genre) => {
     return (
       <div key={genre.id}>
-        <GenreCards genre={genre} handleGenreDetails={handleGenreDetails}/>
+        <GenreCards genre={genre} handleGenreDetails={handleGenreDetails} />
       </div>
     )
   }) 
@@ -60,7 +60,27 @@ function App() {
     history.push(`/games/${game.id}`)
     setGameDetail(game)
   }
+
+  function handleGameDelete(gameDetail){
+    const deletedGame = games.filter((e) => e.id !== parseInt(gameDetail.id));
+    
+    fetch(`http://localhost:9290/games/${gameDetail.id}`, {
+      method: "DELETE" 
+    })
+
+    setGames(deletedGame);
+
+    history.push("/games");
+    console.log(gameDetail)
+  }
   
+  function handleAddGame(gameDetail){
+    console.log(gameDetail)
+  }
+
+  function handleAddGenre(gameDetail){
+    console.log(gameDetail)
+  }
 
   return (
     <div className="App">
@@ -69,15 +89,19 @@ function App() {
         <Navbar></Navbar>
         <Switch>
           <Route path="/games/:id">
-            <GameDetails gameDetail={gameDetail} />
+            <GameDetails gameDetail={gameDetail} handleGameDelete={handleGameDelete}/>
           </Route>
           <Route path="/games">
+            <h2>Games</h2>
+            <h2>➕</h2>
             {gamecards}
           </Route>
           <Route path="/genres/:id">
             <GenreDetails genreDetail={genreDetail}/>
           </Route>
           <Route path="/genres">
+            <h2>Genres</h2>
+            <h2>➕</h2>
             {genrecards}
           </Route>
           <Route path="/">
