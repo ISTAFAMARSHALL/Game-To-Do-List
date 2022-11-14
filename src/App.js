@@ -79,18 +79,15 @@ function App() {
   }
   
   function HandleUpdategame(updatedGameInfo){
-    console.log("HI", updatedGameInfo)
     const deletedGame = games.filter((e) => e.id !== parseInt(updatedGameInfo.id));
     setGames([ updatedGameInfo, ...deletedGame ]);
   }
 
   function HandleAddGame(newGame){
-    console.log("HI",newGame)
     setGames([ newGame, ...games ])
   }
 
   function HandleAddGenre(newGenre){
-    console.log("HI",newGenre)
     setGenres([ newGenre, ...genres ])
   }
 
