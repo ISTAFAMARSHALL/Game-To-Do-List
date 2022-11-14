@@ -11,6 +11,7 @@ import GenreCards from './GenreContainer.js/GenreCards';
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom'
 import GameForm from './GameContainer.js/GameForm';
+import GenreForm from './GenreContainer.js/GenreForm';
 
 
 function App() {
@@ -85,6 +86,10 @@ function App() {
     console.log("HI")
   }
 
+  function HandleAddGenre(gameDetail){
+    console.log("HI")
+  }
+
   return (
     <div className="App">
       
@@ -100,7 +105,7 @@ function App() {
             {gameform ? (
               <div> {gamecards}</div>
               ): (
-              <GameForm/>
+              <GameForm HandleAddGame={HandleAddGame}/>
             )}
 
           </Route>
@@ -113,7 +118,7 @@ function App() {
             {genreform ? (
               <div> {genrecards}</div>
               ): (
-              <GameForm/>
+              <GenreForm HandleAddGenre={HandleAddGenre}/>
             )}
           </Route>
           <Route path="/">
