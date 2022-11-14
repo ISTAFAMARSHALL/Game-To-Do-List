@@ -1,0 +1,37 @@
+// import React, { useState } from "react";
+
+// function EditGameDetalis({gameDetail}) {
+
+//   const [gameInfo, setgameInfo] = useState(gameDetail);
+
+//   function handleAddGame(e) {
+//     e.preventDefault();
+
+//     fetch(`http://localhost:9290/games/${gameDetail.id}`, {
+//       method: "PATCH",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({
+//         body: gameInfo,
+//       }),
+//     })
+//       .then((r) => r.json())
+//       .then((updatedGameInfo) => onUpdateMessage(updatedGameInfo));
+//   }
+
+//   return (
+//     <form className="edit-message" onSubmit={handleAddGame}>
+//       <input
+//         type="text"
+//         name="gameInfo"
+//         autoComplete="off"
+//         value={gameInfo}
+//         onChange={(e) => setgameInfo(e.target.value)}
+//       />
+//       <input type="submit" value="Save" />
+//     </form>
+//   );
+// }
+
+// export default EditGameDetalis;
