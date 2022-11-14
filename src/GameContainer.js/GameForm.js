@@ -29,7 +29,7 @@ function GameForm({HandleAddGame}) {
           body: JSON.stringify(newGameInfo)
         })
           .then((r) => r.json())
-          .then((updatedGameInfo) => HandleAddGame(updatedGameInfo));
+          .then((newGame) => HandleAddGame(newGame));
           // setgameName("")
           // setgameScore("")
           // setgameCompletionPercentage("")
@@ -44,36 +44,42 @@ function GameForm({HandleAddGame}) {
       type="text" 
       name="gameInfo" 
       value={gameName}
+      required placeholder='Enter Game Name Here'
       onChange={(e) => setgameName(e.target.value)}
     />
     <input 
       type="text" 
       name="gameInfo" 
       value={genreId}
+      required placeholder='Enter Genre ID Here'
       onChange={(e) => setGenreId(e.target.value)}
     />
     <input 
       type="text" 
       name="gameInfo" 
       value={gameScore}
+      placeholder='Game Score'
       onChange={(e) => setgameScore(e.target.value)}
     />
     <input 
       type="text" 
       name="gameInfo" 
       value={gameCompletionPercentage}
+      placeholder='Enter Completion Percentage Here'
       onChange={(e) => setgameCompletionPercentage(e.target.value)}
     />
     <input 
       type="text" 
       name="gameInfo" 
       value={gamePlatinum}
+      placeholder='Platinum Trophy Achieved'
       onChange={(e) => setgamePlatinum(e.target.value)}
     />
     <input 
       type="text" 
       name="gameInfo" 
       value={gameComment}
+      placeholder='Enter Comments Here'
       onChange={(e) => setgameComment(e.target.value)}
     />
     <input type="submit" value="Save" />
