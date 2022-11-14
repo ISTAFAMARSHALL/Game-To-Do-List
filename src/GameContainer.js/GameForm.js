@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function GameForm({HandleAddGame, genres}) {
+function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
 
     const [gameName, setgameName] = useState();
     const [gameScore, setgameScore] = useState();
@@ -20,6 +20,7 @@ function GameForm({HandleAddGame, genres}) {
 
     function handleAddNewGame(e) {
         e.preventDefault();
+        console.log(newGameInfo)
 
         fetch("http://localhost:9290/games", {
           method: "POST",
@@ -35,11 +36,14 @@ function GameForm({HandleAddGame, genres}) {
           // setgameCompletionPercentage("")
           // setgamePlatinum("")
           // setgameComment("")
+          setGameForm(!gameform) 
       }
 
 
   return (
     <form onSubmit={handleAddNewGame}>
+    
+    Game Name:
     <input 
       type="text" 
       name="gameInfo" 
@@ -47,12 +51,14 @@ function GameForm({HandleAddGame, genres}) {
       required placeholder='Enter Game Name Here'
       onChange={(e) => setgameName(e.target.value)}
     />
+
+    Select your Genre
     <select onChange={(e) => setGenreId(e.target.value)}>
-                Select your Genre
-            {genres.map((genre) => <option value ={genre.nam} key={genre.name}>{`${genre.name}`}</option>)}
+        {genres.map((genre) => <option value={genreId} key={genre.name}>{`${genre.name}`}</option>)}
     </select>
+
+    Game Score
     <select onChange={(e) => setgameScore(e.target.value)}>
-            Game Score
         <option value="Unrated">Unrated</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -60,24 +66,31 @@ function GameForm({HandleAddGame, genres}) {
         <option value="4">4</option>
         <option value="5">5</option>
     </select>
+
+    Completion Percentage
     <input 
       type="text"
       value={gameCompletionPercentage}
       placeholder='Enter Completion Percentage Here'
       onChange={(e) => setgameCompletionPercentage(e.target.value)}
     />
+
+    Platinum Trophy Achieved
     <select onChange={(e) => setgamePlatinum(e.target.value)}>
-            Platinum Trophy Achieved
         <option value="False">False</option>
         <option value="True">True</option>
     </select>
+
+    Comments
     <input 
       type="text" 
       value={gameComment}
       placeholder='Enter Your Comments Here'
       onChange={(e) => setgameComment(e.target.value)}
     />
+
     <input type="submit" value="Save" />
+
   </form>
   )
 }
