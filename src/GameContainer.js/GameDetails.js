@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import EditGameDetalis from './EditGameDetails';
 
 
-function GameDetails({gameDetail, handleGameDelete}) {
+function GameDetails({gameDetail, handleGameDelete, HandleUpdategame}) {
 
   const [editDetail, seteditDetail] = useState(true);
 
@@ -27,7 +27,7 @@ function GameDetails({gameDetail, handleGameDelete}) {
             <h2>{gameDetail.name}          
               <a onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</a>
             </h2>
-            <EditGameDetalis gameDetail={gameDetail}/>
+            <EditGameDetalis gameDetail={gameDetail} HandleUpdategame={HandleUpdategame}/>
           </div>
        )}
     </div>

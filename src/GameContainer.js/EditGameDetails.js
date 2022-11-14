@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function EditGameDetalis({gameDetail}) {
+function EditGameDetalis({gameDetail, HandleUpdategame}) {
 
   const [gameName, setgameName] = useState(gameDetail.name);
   const [gameScore, setgameScore] = useState(gameDetail.score);
@@ -32,8 +32,12 @@ function EditGameDetalis({gameDetail}) {
       }),
     })
       .then((r) => r.json())
-      // .then((updatedGameInfo) => onUpdateMessage(updatedGameInfo));
-      
+      .then((updatedGameInfo) => HandleUpdategame(updatedGameInfo));
+      // setgameName("")
+      // setgameScore("")
+      // setgameCompletionPercentage("")
+      // setgamePlatinum("")
+      // setgameComment("")
   }
 
   return (

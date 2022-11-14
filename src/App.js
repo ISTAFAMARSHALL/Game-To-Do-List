@@ -74,7 +74,7 @@ function App() {
     console.log(gameDetail)
   }
   
-  function handleAddGame(gameDetail){
+  function HandleUpdategame(gameDetail){
     console.log(gameDetail)
   }
 
@@ -89,7 +89,7 @@ function App() {
         <Navbar></Navbar>
         <Switch>
           <Route path="/games/:id">
-            <GameDetails gameDetail={gameDetail} handleGameDelete={handleGameDelete}/>
+            <GameDetails gameDetail={gameDetail} handleGameDelete={handleGameDelete} HandleUpdategame={HandleUpdategame}/>
           </Route>
           <Route path="/games">
             <h2>Games</h2>
