@@ -121,7 +121,7 @@ function App() {
             {genreform ? (
               <div> {genrecards}</div>
               ): (
-              <GenreForm HandleAddGenre={HandleAddGenre}/>
+              <GenreForm HandleAddGenre={HandleAddGenre} genreform={genreform} setGenreForm={setGenreForm}/>
             )}
           </Route>
           <Route path="/">

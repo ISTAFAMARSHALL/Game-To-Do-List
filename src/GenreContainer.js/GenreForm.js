@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const GenreForm = ({HandleAddGenre}) => {
+const GenreForm = ({HandleAddGenre, genreform, setGenreForm}) => {
 
     const [genreName, setGenreName] = useState("");
 
@@ -26,6 +26,7 @@ const GenreForm = ({HandleAddGenre}) => {
           // setgameCompletionPercentage("")
           // setgamePlatinum("")
           // setgameComment("")
+          setGenreForm(!genreform)
       }
 
   return (
