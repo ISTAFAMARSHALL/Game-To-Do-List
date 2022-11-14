@@ -109,7 +109,7 @@ function App() {
             {gameform ? (
               <div> {gamecards}</div>
               ): (
-              <GameForm HandleAddGame={HandleAddGame}/>
+              <GameForm HandleAddGame={HandleAddGame} genres={genres}/>
             )}
           </Route>
           <Route path="/genres/:id">

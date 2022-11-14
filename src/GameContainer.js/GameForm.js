@@ -54,13 +54,18 @@ function GameForm({HandleAddGame}) {
       required placeholder='Enter Genre ID Here'
       onChange={(e) => setGenreId(e.target.value)}
     />
-    <input 
-      type="text" 
-      name="gameInfo" 
-      value={gameScore}
-      placeholder='Game Score'
-      onChange={(e) => setgameScore(e.target.value)}
-    />
+    <select 
+            type="text" 
+            name="gameInfo" 
+            value={gameScore}
+            placeholder='Game Score'
+            onChange={(e) => setgameScore(e.target.value)}>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
     <input 
       type="text" 
       name="gameInfo" 
@@ -68,13 +73,15 @@ function GameForm({HandleAddGame}) {
       placeholder='Enter Completion Percentage Here'
       onChange={(e) => setgameCompletionPercentage(e.target.value)}
     />
-    <input 
-      type="text" 
-      name="gameInfo" 
-      value={gamePlatinum}
-      placeholder='Platinum Trophy Achieved'
-      onChange={(e) => setgamePlatinum(e.target.value)}
-    />
+    <select 
+            type="text" 
+            name="gameInfo" 
+            value={gamePlatinum}
+            placeholder='Platinum Trophy Achieved'
+            onChange={(e) => setgamePlatinum(e.target.value)}>
+        <option value="False">False</option>
+        <option value="True">True</option>
+    </select>
     <input 
       type="text" 
       name="gameInfo" 
