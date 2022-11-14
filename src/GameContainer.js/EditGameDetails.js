@@ -10,15 +10,14 @@ function EditGameDetalis({gameDetail, HandleUpdategame}) {
 
   const updatedGameInfo ={
     name: gameName,
-    genre_id: gameDetail.id,
+    genre_id: gameDetail.genre_id,
     score: gameScore,
     completion_percentage: gameCompletionPercentage,
     platinum: gamePlatinum,
     comment:gameComment,
   }
 
-
-  function handleAddGame(e) {
+  function handleGameUpdate(e) {
     e.preventDefault();
     console.log(updatedGameInfo)
 
@@ -41,7 +40,7 @@ function EditGameDetalis({gameDetail, HandleUpdategame}) {
   }
 
   return (
-    <form onSubmit={handleAddGame}>
+    <form onSubmit={handleGameUpdate}>
       <input 
         type="text" 
         name="gameInfo" 

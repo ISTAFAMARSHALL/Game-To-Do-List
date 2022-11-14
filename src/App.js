@@ -75,11 +75,11 @@ function App() {
   }
   
   function HandleUpdategame(gameDetail){
-    console.log(gameDetail)
+    console.log("HI")
   }
 
-  function handleAddGenre(gameDetail){
-    console.log(gameDetail)
+  function HandleAddGame(gameDetail){
+    console.log("HI")
   }
 
   return (
