@@ -14,9 +14,6 @@ code {
 
 
 #navbar {
-  font-style: italic;
-  color: black;
-  font-size: 100%;
   padding: auto;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -27,6 +24,7 @@ code {
   color: black;
   width: 200px;
   height: 50px;
+  margin: 10px;
   background-color: transparent;
   border-width: thin;
   border-style: groove;
@@ -37,3 +35,18 @@ button:hover, #button:hover {
   border-width: thick;
   border-style: groove;
 }
+
+footer {
+  font-style: italic;
+  color: black;
+  font-size: 250%;
+ }
+
+ span {
+  margin: 20px;
+ }
+
+ #about {
+  margin-top: 500px;
+  margin-bottom: 500px;
+ }

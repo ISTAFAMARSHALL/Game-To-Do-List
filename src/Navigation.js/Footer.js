@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer>
       <span>My Gaming Todo List</span>
-      <span>Istafa Anthony Marsahll</span>
+      <span>Istafa Anthony Marshall</span>
     </footer>)
 }
 

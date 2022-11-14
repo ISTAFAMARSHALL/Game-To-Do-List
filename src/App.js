@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
 import GameForm from './GameContainer.js/GameForm';
 import GenreForm from './GenreContainer.js/GenreForm';
+import About from './Navigation.js/About';
 
 
 function App() {
@@ -121,6 +122,9 @@ function App() {
               ): (
               <GenreForm HandleAddGenre={HandleAddGenre} genreform={genreform} setGenreForm={setGenreForm}/>
             )}
+          </Route>
+          <Route path="/about">
+            <About/>
           </Route>
           <Route path="/">
             <Home/>
