@@ -19,7 +19,7 @@ function App() {
   const [games , setGames] = useState([]);
   const [genres, setGenres] = useState([]);
   const [gameDetail, setGameDetail] = useState([]);
-  const [genreDetail, setGenreDetail] = useState([])
+  const [genreDetail, setGenreDetail] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9290/games")
@@ -63,7 +63,7 @@ function App() {
 
   function handleGameDelete(gameDetail){
     const deletedGame = games.filter((e) => e.id !== parseInt(gameDetail.id));
-    
+
     fetch(`http://localhost:9290/games/${gameDetail.id}`, {
       method: "DELETE" 
     })
