@@ -59,6 +59,7 @@ function App() {
   }
 
   function handleGameDetails(game){
+    console.log(game)
     history.push(`/games/${game.id}`)
     setGameDetail(game)
   }
@@ -107,7 +108,7 @@ function App() {
             )}
           </Route>
           <Route path="/genres/:id">
-            <GenreDetails genreDetail={genreDetail}/>
+            <GenreDetails genreDetail={genreDetail} games={games }/>
           </Route>
           <Route path="/genres">
               <h2>Genres
