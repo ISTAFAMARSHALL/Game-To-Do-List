@@ -1,5 +1,7 @@
 # My Gaming Todo List
 
+![My Gaming Todo List - Flatiron School: Phase 2 Project](https://i.makeagif.com/media/11-16-2022/HSC4pN.gif)
+
 ## Description
 
 One of my favorite hobbies is playing video games.

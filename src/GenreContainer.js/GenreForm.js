@@ -35,7 +35,7 @@ const GenreForm = ({HandleAddGenre, genreform, setGenreForm}) => {
           required placeholder='Enter Genre Name Here'
           onChange={(e) => setGenreName(e.target.value)}
       />
-        <input type="submit" value="Save" />
+        <button type="submit" value="Save">Save</button>
       </div>
 
   </form>

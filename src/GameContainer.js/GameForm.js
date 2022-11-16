@@ -102,7 +102,7 @@ function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
     />
     </div>
 
-    <input type="submit" value="Save" />
+    <button type="submit" value="Save">Save</button>
 
   </form>
   )

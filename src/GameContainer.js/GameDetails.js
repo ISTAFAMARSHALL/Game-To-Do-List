@@ -16,10 +16,10 @@ function GameDetails({gameDetail, handleGameDelete, HandleUpdategame}) {
                 <span onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</span>
               </h2>
               <p>{gameDetail.genre_id}</p>
-              <p>{gameDetail.score}</p>
-              <p>{gameDetail.completion_percentage}</p>
-              <p>{gameDetail.platinum}</p>
-              <p>{gameDetail.comment}</p>
+              <p>Game Score: {gameDetail.score}</p>
+              <p>Completion Percentage: {gameDetail.completion_percentage}</p>
+              <p>Platinum Achieved? {gameDetail.platinum}</p>
+              <p>Gaming Comments: {gameDetail.comment}</p>
               <button onClick={() => handleGameDelete(gameDetail)}>Delete Game ❌</button>
             </div>
       ) : (
