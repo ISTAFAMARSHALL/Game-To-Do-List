@@ -2,9 +2,9 @@
 
 ## Description
 
-One of my favorite hobbies is playing videogames.
-I created this app to track my progession during the playthrough of various games
-Enjoy using this app to track completion percentage, rate games and leave comments
+One of my favorite hobbies is playing video games.
+I created this app to track my progression during the playthrough of various games
+Enjoy using this app to track completion percentage, rate games, and leave comments
 
 
 ### Installation
