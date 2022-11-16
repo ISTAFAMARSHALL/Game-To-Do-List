@@ -73,7 +73,6 @@ function App() {
     setGames(deletedGame);
 
     history.push("/games");
-    console.log(gameDetail)
   }
   
   function HandleUpdategame(updatedGameInfo){
