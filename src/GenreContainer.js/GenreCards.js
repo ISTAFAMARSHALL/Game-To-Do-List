@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 
 
-function GenreCards({genre,handleGenreDetails}) {
+function GenreCards({genre}) {
 
   const history = useHistory()
 

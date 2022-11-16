@@ -85,7 +85,7 @@ function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
     </div>
 
     <div>
-      <label>Completion Percentage </label>
+      <label>Platinum Trophy Achieved</label>
         <select onChange={(e) => setgamePlatinum(e.target.value)}>
             <option value="False">False</option>
             <option value="True">True</option>

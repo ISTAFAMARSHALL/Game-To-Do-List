@@ -1,35 +1,46 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import EditGameDetalis from './EditGameDetails';
 
 
-function GameDetails({gameDetail, handleGameDelete, HandleUpdategame}) {
+function GameDetails({games, handleGameDelete, HandleUpdategame}) {
 
   const [editDetail, seteditDetail] = useState(true);
 
-  console.log(gameDetail)
+  const parId = useParams()
+
+  const game = games.filter((game) => game.id === parseInt(parId.id), [games])
+
+  const gameInfo = game.map((e) =>{
+    return (
+      <div key={e.id}>
+        {editDetail ? (
+        <div id='display'>
+            <h2>{e.name}
+              <span onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</span>
+            </h2>
+            <h3>{e.genre.name}</h3>
+            <p>Game Score: {e.score}</p>
+            <p>Completion Percentage: {e.completion_percentage}</p>
+            { e.platinum === "True"? <a href="https://emoji.gg/emoji/4858-platinum-trophy"><img src="https://cdn3.emoji.gg/emojis/4858-platinum-trophy.png" width="64px" height="64px" alt="platinum_trophy"/></a> : <></>}
+            <p>Gaming Comments: {e.comment}</p>
+            <button onClick={() => handleGameDelete(e)}>Delete Game ❌</button>
+        </div>
+        ) : (
+        <div id='display'>
+                <h2>{e.name}          
+                  <span onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</span>
+                </h2>
+                <EditGameDetalis game={e} HandleUpdategame={HandleUpdategame}/>
+        </div>
+        )}
+      </div>
+    )
+    })
 
   return (
     <div >
-      {editDetail ? (
-            <div id='display'>
-              {/* <h2>{gameDetail.name}          
-                <span onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</span>
-              </h2>
-              <p>{gameDetail.genre.name}</p>
-              <p>Game Score: {gameDetail.score}</p>
-              <p>Completion Percentage: {gameDetail.completion_percentage}</p>
-              { gameDetail.platinum === "True"? <a href="https://emoji.gg/emoji/4858-platinum-trophy"><img src="https://cdn3.emoji.gg/emojis/4858-platinum-trophy.png" width="64px" height="64px" alt="platinum_trophy"/></a> : <></>}
-              <p>Gaming Comments: {gameDetail.comment}</p>
-              <button onClick={() => handleGameDelete(gameDetail)}>Delete Game ❌</button> */}
-            </div>
-      ) : (
-          <div id='display'>
-            {/* <h2>{gameDetail.name}          
-              <span onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</span>
-            </h2>
-            <EditGameDetalis gameDetail={gameDetail} HandleUpdategame={HandleUpdategame}/> */}
-          </div>
-       )}
+      {gameInfo}
     </div>
   )
 }

@@ -21,8 +21,6 @@ function App() {
 
   const [games , setGames] = useState([]);
   const [genres, setGenres] = useState([]);
-  const [gameDetail, setGameDetail] = useState([]);
-  const [genreDetail, setGenreDetail] = useState([]);
   const [gameform, setGameForm] = useState(true);
   const [genreform, setGenreForm] = useState(true);
 
@@ -40,7 +38,7 @@ function App() {
   const gamecards = games.map((game) => {
     return (
       <div key={game.id}>
-        <GameCards game={game} handleGameDetails={handleGameDetails}/>
+        <GameCards game={game} />
       </div>
     )
   }) 
@@ -48,32 +46,22 @@ function App() {
   const genrecards = genres.map((genre) => {
     return (
       <div key={genre.id}>
-        <GenreCards genre={genre} handleGenreDetails={handleGenreDetails} />
+        <GenreCards genre={genre}/>
       </div>
     )
   }) 
 
-  function handleGenreDetails(genre){
-    history.push(`/genres/${genre.id}`)
-    setGenreDetail(genre)
-  }
-
-  function handleGameDetails(game){
-    console.log(game)
-    history.push(`/games/${game.id}`)
-    setGameDetail(game)
-  }
-
   function handleGameDelete(gameDetail){
-    const deletedGame = games.filter((e) => e.id !== parseInt(gameDetail.id));
 
-    fetch(`http://localhost:9292/games/${gameDetail.id}`, {
-      method: "DELETE" 
-    })
+    // const deletedGame = games.filter((e) => e.id !== parseInt(gameDetail.id));
 
-    setGames(deletedGame);
+    // fetch(`http://localhost:9292/games/${gameDetail.id}`, {
+    //   method: "DELETE" 
+    // })
 
-    history.push("/games");
+    // setGames(deletedGame);
+
+    // history.push("/games");
   }
   
   function HandleUpdategame(updatedGameInfo){
@@ -95,7 +83,7 @@ function App() {
         <Navbar setGameForm={setGameForm} gameform={gameform} genreform={genreform} setGenreForm={setGenreForm}></Navbar>
         <Switch>
           <Route path="/games/:id">
-            <GameDetails gameDetail={gameDetail} handleGameDelete={handleGameDelete} HandleUpdategame={HandleUpdategame}/>
+            <GameDetails games={games} handleGameDelete={handleGameDelete} HandleUpdategame={HandleUpdategame}/>
           </Route>
           <Route path="/games">
               <h2>Games
@@ -108,7 +96,7 @@ function App() {
             )}
           </Route>
           <Route path="/genres/:id">
-            <GenreDetails genreDetail={genreDetail} games={games }/>
+            <GenreDetails games={games}/>
           </Route>
           <Route path="/genres">
               <h2>Genres
