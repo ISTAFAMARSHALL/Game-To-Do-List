@@ -27,14 +27,14 @@ function App() {
   const [genreform, setGenreForm] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:9290/games")
+    fetch("http://localhost:9292/games")
     .then(r => r.json())
     .then((data) => setGames(data))
     .catch((error) => alert(error))
   }, [])
 
   useEffect(() => {
-    fetch("http://localhost:9290/genres")
+    fetch("http://localhost:9292/genres")
     .then(r => r.json())
     .then((data) => setGenres(data))
     .catch((error) => alert(error))
@@ -69,7 +69,7 @@ function App() {
   function handleGameDelete(gameDetail){
     const deletedGame = games.filter((e) => e.id !== parseInt(gameDetail.id));
 
-    fetch(`http://localhost:9290/games/${gameDetail.id}`, {
+    fetch(`http://localhost:9292/games/${gameDetail.id}`, {
       method: "DELETE" 
     })
 

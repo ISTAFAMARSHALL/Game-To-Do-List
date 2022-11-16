@@ -12,7 +12,7 @@ const GenreForm = ({HandleAddGenre, genreform, setGenreForm}) => {
         e.preventDefault();
         console.log(genreName)
     
-      fetch("http://localhost:9290/genres", {
+      fetch("http://localhost:9292/genres", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

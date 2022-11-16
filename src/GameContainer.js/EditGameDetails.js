@@ -21,7 +21,7 @@ function EditGameDetalis({gameDetail, HandleUpdategame}) {
   function handleGameUpdate(e) {
     e.preventDefault();
 
-    fetch(`http://localhost:9290/games/${gameDetail.id}`, {
+    fetch(`http://localhost:9292/games/${gameDetail.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

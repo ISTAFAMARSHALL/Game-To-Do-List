@@ -22,7 +22,7 @@ function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
         e.preventDefault();
         console.log(newGameInfo)
 
-        fetch("http://localhost:9290/games", {
+        fetch("http://localhost:9292/games", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
