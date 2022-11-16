@@ -11,17 +11,25 @@ Enjoy using this app to track completion percentage, rate games and leave commen
 
 This project was bootstrapped with [Create React App] and meant to be used with a database
 
-1. Fork and clone repo
-
-2. Fork and Clone repo of database link: https://github.com/ISTAFAMARSHALL/phase-3-sinatra-react-project 
+1. Fork and Clone repo of database from provided
+   link: https://github.com/ISTAFAMARSHALL/phase-3-sinatra-react-project 
 
 2. In the project directory, you can run:
+    a. `bundle install`
+    b. `bundle exec rake server`
+
+This will run your server on port
+[http://localhost:9292](http://localhost:9292).
+
+3. Fork and clone this repo
+
+4. In the project directory, you can run:
     a. `npm install`
     b. `npm start`
 
-3. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-4. open a new terminal window, and run:
+6. open a new terminal window, and run:
     a. `npm run server`
 
 ### Usage
