@@ -29,14 +29,11 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:9292/games")
     .then(r => r.json())
-    .then((data) => setGames(data))
-    .catch((error) => alert(error))
-  }, [])
-
-  useEffect(() => {
-    fetch("http://localhost:9292/genres")
-    .then(r => r.json())
-    .then((data) => setGenres(data))
+    .then((data) => {
+        setGames(data)
+        const genredata = data.map((game) => game.genre);
+        const genres = [...new Map(genredata.map((genre) => [genre.id, genre])).values()];
+        setGenres(genres)})
     .catch((error) => alert(error))
   }, [])
 

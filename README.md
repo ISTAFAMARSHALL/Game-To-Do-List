@@ -16,6 +16,10 @@ This project was bootstrapped with [Create React App] and meant to be used with 
 1. Fork and Clone repo of database from provided
    link: https://github.com/ISTAFAMARSHALL/phase-3-sinatra-react-project 
 
+2. Open project directory
+    a. Right Click on folder "phase-3-sinatra-react-project"
+    b. Select Open Intergrated Terminal 
+
 2. In the project directory, you can run:
     a. `bundle install`
     b. `bundle exec rake server`
