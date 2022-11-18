@@ -65,7 +65,7 @@ function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
     <div>
       <label>Game Score </label>
         <select onChange={(e) => setgameScore(e.target.value)}>
-            <option value="Unrated">Unrated</option>
+            <option value="0">Unrated</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

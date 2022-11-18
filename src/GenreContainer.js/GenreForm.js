@@ -10,7 +10,6 @@ const GenreForm = ({HandleAddGenre, genreform, setGenreForm}) => {
 
     function handleAddNewGenre(e) {
         e.preventDefault();
-        console.log(genreName)
     
       fetch("http://localhost:9292/genres", {
           method: "POST",

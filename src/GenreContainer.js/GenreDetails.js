@@ -1,32 +1,32 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-function GenreDetails({games}) {
+function GenreDetails({genres,games}) {
 
   const parId = useParams()
 
-  const genre = games.filter((game) => game.genre_id === parseInt(parId.id), [games])
+  const genre = genres.filter((genre) => genre.id === parseInt(parId.id))
 
-  const genreName = genre.map((game) => game.genre)
-
-  const g = [...new Map(genreName.map((genre) => [genre.id, genre])).values()];
-
-  const name_2 = g.map((e) =>{
+  const genreName = genre.map((g) =>{
     return (
-      <h2 key={e.id}>{e.name}</h2>
+      <div key={g.id} id='display' >
+      <h2>{g.name}</h2>
+      </div>
     )
     })
 
-  const games_2 = genre.map((game) => {
-    return (
-      <li key={game.id}>{game.name}</li>
-    )
-  })
+    const filterGames = games.filter((game) => game.genre_id === parseInt(parId.id)) 
+
+    const displayGames = filterGames.map((g) => {
+      return (
+        <li key={g.id}>{g.name}</li>
+      )
+    })
 
   return (
-    <div id='display' >
-        {name_2}
-        {games_2}
+    <div id='display'>
+      <h2>{genreName}</h2>
+          {displayGames === "" ? displayGames : <>Your have not played any games in this genre</> }
     </div>
   )
 }

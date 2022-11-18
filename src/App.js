@@ -27,11 +27,14 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:9292/games")
     .then(r => r.json())
-    .then((data) => {
-        setGames(data)
-        const genredata = data.map((game) => game.genre);
-        const genres = [...new Map(genredata.map((genre) => [genre.id, genre])).values()];
-        setGenres(genres)})
+    .then((data) => setGames(data))
+    .catch((error) => alert(error))
+  }, [])
+
+  useEffect(() => {
+    fetch("http://localhost:9292/genres")
+    .then(r => r.json())
+    .then((data) => setGenres(data))
     .catch((error) => alert(error))
   }, [])
 
@@ -53,15 +56,15 @@ function App() {
 
   function handleGameDelete(gameDetail){
 
-    // const deletedGame = games.filter((e) => e.id !== parseInt(gameDetail.id));
+    const deletedGame = games.filter((e) => e.id !== parseInt(gameDetail.id));
 
-    // fetch(`http://localhost:9292/games/${gameDetail.id}`, {
-    //   method: "DELETE" 
-    // })
+    fetch(`http://localhost:9292/games/${gameDetail.id}`, {
+      method: "DELETE" 
+    })
 
-    // setGames(deletedGame);
+    setGames(deletedGame);
 
-    // history.push("/games");
+    history.push("/games");
   }
   
   function HandleUpdategame(updatedGameInfo){
@@ -96,7 +99,7 @@ function App() {
             )}
           </Route>
           <Route path="/genres/:id">
-            <GenreDetails games={games}/>
+            <GenreDetails genres={genres} games={games}/>
           </Route>
           <Route path="/genres">
               <h2>Genres
