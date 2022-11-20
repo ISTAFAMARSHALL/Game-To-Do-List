@@ -26,7 +26,7 @@ function GenreDetails({genres,games}) {
   return (
     <div id='display'>
       <h2>{genreName}</h2>
-          {displayGames === "" ? displayGames : <>Your have not played any games in this genre</> }
+          {displayGames.length !== 0 ? displayGames : <>Your have not played any games in this genre</> }
     </div>
   )
 }

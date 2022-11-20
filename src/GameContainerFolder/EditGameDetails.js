@@ -1,17 +1,21 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom'
 
-function EditGameDetalis({game, HandleUpdategame}) {
+function EditGameDetalis({game, genres, HandleUpdategame}) {
 
-  const [gameName, setgameName] = useState(game.name);
-  const [gameScore, setgameScore] = useState(game.score);
-  const [gameCompletionPercentage, setgameCompletionPercentage] = useState(game.completion_percentage);
-  const [gamePlatinum, setgamePlatinum] = useState(game.platinum);
-  const [gameComment, setgameComment] = useState(game.comment);
+  const history = useHistory();
+
+  const [gameName, setgameName] = useState(`${game.name}`);
+  const [gameScore, setgameScore] = useState(`${game.score}`);
+  const [gameCompletionPercentage, setgameCompletionPercentage] = useState(`${game.completion_percentage}`);
+  const [gamePlatinum, setgamePlatinum] = useState(`${game.platinum}`);
+  const [gameComment, setgameComment] = useState(`${game.comment}`);
+  const [gameGenre, setGameGenre] = useState(`${game.genre_id}`);
 
   const updatedGameInfo ={
     id: game.id,
     name: gameName,
-    genre_id: game.genre_id,
+    genre_id: gameGenre,
     score: gameScore,
     completion_percentage: gameCompletionPercentage,
     platinum: gamePlatinum,
@@ -30,11 +34,7 @@ function EditGameDetalis({game, HandleUpdategame}) {
     })
       .then((r) => r.json())
       .then((updatedGameInfo) => HandleUpdategame(updatedGameInfo));
-      setgameName("")
-      setgameScore("")
-      setgameCompletionPercentage("")
-      setgamePlatinum("")
-      setgameComment("")
+      history.push("/games")
   }
 
   return (
@@ -49,6 +49,13 @@ function EditGameDetalis({game, HandleUpdategame}) {
           required placeholder='Enter Game Name Here'
           onChange={(e) => setgameName(e.target.value)}
         />
+    </div>
+
+    <div>
+      <label>Select your Genre </label>
+        <select defaultValue={gameGenre} onChange={(e) => setGameGenre(e.target.value)}>
+            {genres.map((genre) => <option value={genre.id} key={genre.id}>{`${genre.name}`}</option>)}
+        </select>
     </div>
 
     <div>
