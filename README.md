@@ -23,6 +23,9 @@ This project was bootstrapped with [Create React App] and meant to be used with 
 2. In the project directory, you can run:
     a. `bundle install`
     b. `bundle exec rake server`
+    c. `bundle exec db: migrate`
+    d. `bundle exec db:reset`
+    e. `bundle exec rake server`
 
 This will run your server on port
 [http://localhost:9292](http://localhost:9292).

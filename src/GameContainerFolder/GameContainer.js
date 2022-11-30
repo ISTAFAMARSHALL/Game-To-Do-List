@@ -1,10 +1,7 @@
-// import {useState} from 'react'
 import GameCards from './GameCards'
 import GameForm from './GameForm'
 
 function GameContainer({games, genres, setGames, gameform, setGameForm}) {
-
-//   const [gameform, setGameForm] = useState(true);
 
   const gamecards = games.map((game) => {
     return (
