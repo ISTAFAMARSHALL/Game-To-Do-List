@@ -16,7 +16,8 @@ function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
         completion_percentage: gameCompletionPercentage,
         platinum: gamePlatinum,
         comment:gameComment,
-    }
+        genre: []
+      }
 
     function handleAddNewGame(e) {
         e.preventDefault();

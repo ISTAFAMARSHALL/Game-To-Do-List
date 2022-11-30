@@ -18,6 +18,8 @@ function App() {
   const [gameform, setGameForm] = useState(true);
   const [genreform, setGenreForm] = useState(true);
 
+  console.log(games,genres)
+
   useEffect(() => {
     fetch("http://localhost:9292/games")
     .then(r => r.json())
