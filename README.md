@@ -8,7 +8,6 @@ One of my favorite hobbies is playing video games.
 I created this app to track my progression during the playthrough of various games
 Enjoy using this app to track completion percentage, rate games, and leave comments
 
-
 ### Installation
 
 This project was bootstrapped with [Create React App] and meant to be used with a database
