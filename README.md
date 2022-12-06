@@ -37,9 +37,6 @@ This will run your server on port
 
 5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-6. open a new terminal window, and run:
-    a. `npm run server`
-
 ### Usage
 
 Organize and rate your favorite beauty products within one app.
