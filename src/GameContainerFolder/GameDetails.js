@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import EditGameDetalis from './EditGameDetails';
 
 
-function GameDetails({games, genres, setGames}) {
+function GameDetails({games, genres, setGenres, setGames}) {
 
   const history = useHistory();
 
@@ -34,6 +34,7 @@ function GameDetails({games, genres, setGames}) {
   const gameInfo = game.map((e) =>{
     const genreFilter = genres.filter((g) => g.id === parseInt(e.genre_id))
     const genreName = genreFilter.map((g) => g.name)
+ 
     return (
       <div key={e.id}>
         {editDetail ? (
@@ -42,6 +43,7 @@ function GameDetails({games, genres, setGames}) {
               <span onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</span>
             </h2>
             <h3>{genreName}</h3>
+            {/* <h3>{e.genre.name}</h3> */}
             <p>Game Score: {e.score}</p>
             <p>Completion Percentage: {e.completion_percentage}</p>
             { e.platinum === "True"? <a href="https://emoji.gg/emoji/4858-platinum-trophy"><img src="https://cdn3.emoji.gg/emojis/4858-platinum-trophy.png" width="64px" height="64px" alt="platinum_trophy"/></a> : <></>}
@@ -53,7 +55,7 @@ function GameDetails({games, genres, setGames}) {
                 <h2>{e.name}          
                   <span onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</span>
                 </h2>
-                <EditGameDetalis genres={genres} game={e} HandleUpdategame={HandleUpdategame}/>
+                <EditGameDetalis genres={genres} setGenres={setGenres} game={e} HandleUpdategame={HandleUpdategame}/>
         </div>
         )}
       </div>

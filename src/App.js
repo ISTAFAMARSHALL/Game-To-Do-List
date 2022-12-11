@@ -38,13 +38,13 @@ function App() {
         <Navbar setGameForm={setGameForm} gameform={gameform} genreform={genreform} setGenreForm={setGenreForm}></Navbar>
         <Switch>
           <Route path="/games/:id">
-            <GameDetails games={games} genres={genres} setGames={setGames} />
+            <GameDetails games={games} genres={genres} setGenres={setGenres} setGames={setGames} />
           </Route>
           <Route path="/games">
             <GameContainer games={games} genres={genres} setGames={setGames} gameform={gameform} setGameForm={setGameForm}/>
           </Route>
           <Route path="/genres/:id">
-            <GenreDetails genres={genres} games={games}/>
+            <GenreDetails genres={genres} />
           </Route>
           <Route path="/genres">
             <GenreContainer genres={genres} setGenres={setGenres} genreform={genreform} setGenreForm={setGenreForm}/>

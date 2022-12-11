@@ -9,9 +9,9 @@ function GameContainer({games, genres, setGames, gameform, setGameForm}) {
         <GameCards game={game} />
       </div>
     )
-  }) 
+  })
 
-  function HandleAddGame(newGame){
+  function HandleAddGame(newGame){ 
     setGames([ newGame, ...games ])
   }
 
@@ -22,7 +22,7 @@ function GameContainer({games, genres, setGames, gameform, setGameForm}) {
         </h2>
             {gameform ? (
               <div> {gamecards}</div>
-              ): (
+              ):(
               <GameForm HandleAddGame={HandleAddGame} genres={genres} setGameForm={setGameForm} gameform={gameform}/>
             )}
     </div>

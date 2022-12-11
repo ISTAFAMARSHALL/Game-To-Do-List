@@ -6,7 +6,7 @@ function Header() {
 
 
   return (
-        <h1>My Gaming Todo List</h1>
+        <h1>My Gaming To-do List</h1>
   )
 }
 

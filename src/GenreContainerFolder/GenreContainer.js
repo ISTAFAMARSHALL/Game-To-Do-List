@@ -6,13 +6,14 @@ function GenreContainer({genres, setGenres, genreform, setGenreForm}) {
 
   const genrecards = genres.map((genre) => {
     return (
-      <div key={genre.id}>
+      <div key={genre.name}>
         <GenreCards genre={genre}/>
       </div>
     )
   }) 
 
   function HandleAddGenre(newGenre){
+    debugger
     setGenres([ newGenre, ...genres ])
   }
 

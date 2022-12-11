@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom'
 
-function EditGameDetalis({game, genres, HandleUpdategame}) {
+function EditGameDetalis({game, genres, setGenres, HandleUpdategame}) {
 
   const history = useHistory();
 
@@ -11,6 +11,7 @@ function EditGameDetalis({game, genres, HandleUpdategame}) {
   const [gamePlatinum, setgamePlatinum] = useState(`${game.platinum}`);
   const [gameComment, setgameComment] = useState(`${game.comment}`);
   const [gameGenre, setGameGenre] = useState(`${game.genre_id}`);
+  const [oldGameGenre] = useState(`${game.genre_id}`);
 
   const updatedGameInfo ={
     id: game.id,
@@ -19,7 +20,27 @@ function EditGameDetalis({game, genres, HandleUpdategame}) {
     score: gameScore,
     completion_percentage: gameCompletionPercentage,
     platinum: gamePlatinum,
-    comment:gameComment,
+    comment:gameComment
+  }
+
+  const filterOldGenres = genres.filter((e) => e.id !== parseInt(oldGameGenre));
+  const filterNewGenres = filterOldGenres.filter((e) => e.id !== parseInt(gameGenre));
+  const oldgenre = genres.filter((e) => e.id === parseInt(oldGameGenre));
+  const newgenre = genres.filter((e) => e.id === parseInt(gameGenre));
+  const oldgenreGames = oldgenre[0].games.map((g) => g)
+  const filteredOldGenreGames = oldgenreGames.filter((g) => g.id !== game.id )
+  const newgenreGames = newgenre[0].games.map((g) => g)
+
+  const updatedoldgenre = {
+    id:oldgenre[0].id,
+    name:oldgenre[0].name,
+    games:filteredOldGenreGames
+  }
+
+  const updatednewgenre = {
+    id:newgenre[0].id,
+    name:newgenre[0].name,
+    games:[...newgenreGames,updatedGameInfo]
   }
 
   function handleGameUpdate(e) {
@@ -34,6 +55,7 @@ function EditGameDetalis({game, genres, HandleUpdategame}) {
     })
       .then((r) => r.json())
       .then((updatedGameInfo) => HandleUpdategame(updatedGameInfo));
+      parseInt(oldGameGenre) === parseInt(gameGenre) ? setGenres([...filterOldGenres,...oldgenre]) : setGenres([...filterNewGenres,updatedoldgenre,updatednewgenre])
       history.push("/games")
   }
 
