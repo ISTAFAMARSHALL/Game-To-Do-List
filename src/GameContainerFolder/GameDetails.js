@@ -20,9 +20,9 @@ function GameDetails({games, genres, setGenres, setGames}) {
     history.push("/games");
   }
   
-  function HandleUpdategame(updatedGameInfo){
-    const deletedGame = games.filter((e) => e.id !== parseInt(updatedGameInfo.id));
-    setGames([ updatedGameInfo, ...deletedGame ]);
+  function handleUpdategame(updatedGameInfo){
+    const filteredGames = games.filter((e) => e.id !== parseInt(updatedGameInfo.id));
+    setGames([ updatedGameInfo, ...filteredGames ]);
   }
 
   const [editDetail, seteditDetail] = useState(true);
@@ -32,8 +32,6 @@ function GameDetails({games, genres, setGenres, setGames}) {
   const game = games.filter((game) => game.id === parseInt(parId.id), [games])
 
   const gameInfo = game.map((e) =>{
-    const genreFilter = genres.filter((g) => g.id === parseInt(e.genre_id))
-    const genreName = genreFilter.map((g) => g.name)
  
     return (
       <div key={e.id}>
@@ -42,8 +40,7 @@ function GameDetails({games, genres, setGenres, setGames}) {
             <h2>{e.name}
               <span onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</span>
             </h2>
-            <h3>{genreName}</h3>
-            {/* <h3>{e.genre.name}</h3> */}
+            <h3>{e.genre.name}</h3>
             <p>Game Score: {e.score}</p>
             <p>Completion Percentage: {e.completion_percentage}</p>
             { e.platinum === "True"? <a href="https://emoji.gg/emoji/4858-platinum-trophy"><img src="https://cdn3.emoji.gg/emojis/4858-platinum-trophy.png" width="64px" height="64px" alt="platinum_trophy"/></a> : <></>}
@@ -55,7 +52,7 @@ function GameDetails({games, genres, setGenres, setGames}) {
                 <h2>{e.name}          
                   <span onClick={() => seteditDetail((editDetail) => !editDetail)}>✏️</span>
                 </h2>
-                <EditGameDetalis genres={genres} setGenres={setGenres} game={e} HandleUpdategame={HandleUpdategame}/>
+                <EditGameDetalis genres={genres} setGenres={setGenres} game={e} handleUpdategame={handleUpdategame}/>
         </div>
         )}
       </div>

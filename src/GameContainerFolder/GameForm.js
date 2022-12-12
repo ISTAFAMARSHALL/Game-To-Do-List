@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function GameForm({HandleAddGame, genres, setGenres, setGameForm, gameform}) {
+function GameForm({handleAddGame, genres, setGenres, setGameForm, gameform}) {
 
     const [gameName, setgameName] = useState("");
     const [gameScore, setgameScore] = useState("");
@@ -43,7 +43,7 @@ function GameForm({HandleAddGame, genres, setGenres, setGameForm, gameform}) {
             }
 
             setGenres([...filterGenres ,updatednewgenre])
-            HandleAddGame(newGame)
+            handleAddGame(newGame)
           });
           setgameName("")
           setgameScore("")

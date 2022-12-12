@@ -19,8 +19,8 @@ This project was bootstrapped with [Create React App] and meant to be used with 
 
     In the project directory, you can run:
         a. `bundle install`
-        b. `bundle exec db: migrate`
-        c. `bundle exec db: seed`
+        b. `bundle exec rake db: migrate`
+        c. `bundle exec rake db: seed`
         d. `bundle exec rake server`
 
 This will run your server on port

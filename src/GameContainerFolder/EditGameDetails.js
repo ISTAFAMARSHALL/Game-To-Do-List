@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom'
 
-function EditGameDetalis({game, genres, setGenres, HandleUpdategame}) {
+function EditGameDetalis({game, genres, setGenres, handleUpdategame}) {
 
   const history = useHistory();
 
@@ -39,11 +39,17 @@ function EditGameDetalis({game, genres, setGenres, HandleUpdategame}) {
       name:oldgenre[0].name,
       games:filteredOldGenreGames
     }
-  
+
     const updatednewgenre = {
       id:newgenre[0].id,
       name:newgenre[0].name,
       games:[...newgenreGames,updatedGameInfo]
+    }
+
+    const updatedsamegenre = {
+      id:newgenre[0].id,
+      name:newgenre[0].name,
+      games:[...filteredOldGenreGames,updatedGameInfo]
     }
 
     fetch(`http://localhost:9292/games/${game.id}`, {
@@ -54,8 +60,24 @@ function EditGameDetalis({game, genres, setGenres, HandleUpdategame}) {
       body: JSON.stringify(updatedGameInfo),
     })
       .then((r) => r.json())
-      .then((updatedGameInfo) => HandleUpdategame(updatedGameInfo));
-      parseInt(oldGameGenre) === parseInt(gameGenre) ? setGenres([...filterOldGenres,...oldgenre]) : setGenres([...filterNewGenres,updatedoldgenre,updatednewgenre])
+      .then((updatedGameInfo) => handleUpdategame(updatedGameInfo));
+
+      // refactory code to complete later 
+      // setGenres(prevGenres => {
+      //   return prevGenres.map((genre) => {
+      //     if (genre.id === updatedGameInfo.genre_id) {
+      //       return {
+      //         ...genre,
+      //         games: genre.games.filter((game) => game.id === updatedGameInfo) !==  genre.games.map((game) => updatedGameInfo.id === game.id ? updatedGameInfo : game)
+      //       }
+      //     } else if (genre.id === game.genre_id && updatedGameInfo.id !== game.id) {
+      //       return {
+      //         ...genre,
+      //         games: genre.games.filter((currGame) => currGame.id !== updatedGameInfo.id)
+      //       }
+      //     }
+      //   })})
+      parseInt(oldGameGenre) === parseInt(gameGenre) ? setGenres([...filterOldGenres,...updatedsamegenre]) : setGenres([...filterNewGenres,updatedoldgenre,updatednewgenre])
       history.push("/games")
   }
 
