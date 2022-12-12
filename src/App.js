@@ -41,7 +41,7 @@ function App() {
             <GameDetails games={games} genres={genres} setGenres={setGenres} setGames={setGames} />
           </Route>
           <Route path="/games">
-            <GameContainer games={games} genres={genres} setGames={setGames} gameform={gameform} setGameForm={setGameForm}/>
+            <GameContainer games={games} genres={genres} setGenres={setGenres} setGames={setGames} gameform={gameform} setGameForm={setGameForm}/>
           </Route>
           <Route path="/genres/:id">
             <GenreDetails genres={genres} />

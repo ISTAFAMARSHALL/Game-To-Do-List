@@ -1,7 +1,7 @@
 import GameCards from './GameCards'
 import GameForm from './GameForm'
 
-function GameContainer({games, genres, setGames, gameform, setGameForm}) {
+function GameContainer({games, genres, setGenres, setGames, gameform, setGameForm}) {
 
   const gamecards = games.map((game) => {
     return (
@@ -23,7 +23,7 @@ function GameContainer({games, genres, setGames, gameform, setGameForm}) {
             {gameform ? (
               <div> {gamecards}</div>
               ):(
-              <GameForm HandleAddGame={HandleAddGame} genres={genres} setGameForm={setGameForm} gameform={gameform}/>
+              <GameForm HandleAddGame={HandleAddGame} genres={genres} setGenres={setGenres} setGameForm={setGameForm} gameform={gameform}/>
             )}
     </div>
     

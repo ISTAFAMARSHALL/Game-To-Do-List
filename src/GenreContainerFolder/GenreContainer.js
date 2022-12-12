@@ -13,7 +13,6 @@ function GenreContainer({genres, setGenres, genreform, setGenreForm}) {
   }) 
 
   function HandleAddGenre(newGenre){
-    debugger
     setGenres([ newGenre, ...genres ])
   }
 

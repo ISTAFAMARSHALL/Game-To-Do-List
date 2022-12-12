@@ -19,8 +19,7 @@ const GenreForm = ({HandleAddGenre, genreform, setGenreForm}) => {
           body: JSON.stringify(newGenreInfo)
       })
           .then((r) => r.json())
-          .then((newGenreInfo) => {
-          HandleAddGenre(newGenreInfo)});
+          .then((newGenreInfo) => HandleAddGenre(newGenreInfo));
           setGenreName("")
           setGenreForm(!genreform)
     }

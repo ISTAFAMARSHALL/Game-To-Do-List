@@ -16,24 +16,23 @@ This project was bootstrapped with [Create React App] and meant to be used with 
    link: https://github.com/ISTAFAMARSHALL/phase-3-sinatra-react-project 
 
 2. Open project directory
-    a. Right Click on folder "phase-3-sinatra-react-project"
-    b. Select Open Intergrated Terminal 
 
-2. In the project directory, you can run:
-    a. `bundle install`
-    b. `bundle exec rake server`
-    c. `bundle exec db: migrate`
-    d. `bundle exec db:reset`
-    e. `bundle exec rake server`
+    In the project directory, you can run:
+        a. `bundle install`
+        b. `bundle exec db: migrate`
+        c. `bundle exec db: seed`
+        d. `bundle exec rake server`
 
 This will run your server on port
 [http://localhost:9292](http://localhost:9292).
 
 3. Fork and clone this repo
 
-4. In the project directory, you can run:
-    a. `npm install`
-    b. `npm start`
+4. Open project directory
+
+    In the project directory, you can run:
+        a. `npm install`
+        b. `npm start`
 
 5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 

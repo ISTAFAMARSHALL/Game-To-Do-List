@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
+function GameForm({HandleAddGame, genres, setGenres, setGameForm, gameform}) {
 
     const [gameName, setgameName] = useState("");
     const [gameScore, setgameScore] = useState("");
@@ -21,6 +21,11 @@ function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
 
     function handleAddNewGame(e) {
         e.preventDefault();
+
+        const filterGenres = genres.filter((e) => e.id !== parseInt(genreId));
+        const newgenre = genres.filter((e) => e.id === parseInt(genreId));
+        const newgenreGames = newgenre[0].games.map((g) => g)
+
         fetch("http://localhost:9292/games", {
           method: "POST",
           headers: {
@@ -29,7 +34,17 @@ function GameForm({HandleAddGame, genres, setGameForm, gameform}) {
           body: JSON.stringify(newGameInfo)
         })
           .then((r) => r.json())
-          .then((newGame) => HandleAddGame(newGame));
+          .then((newGame) => {
+
+            const updatednewgenre = {
+              id: parseInt(newgenre[0].id),
+              name:newgenre[0].name,
+              games:[...newgenreGames,newGameInfo]
+            }
+
+            setGenres([...filterGenres ,updatednewgenre])
+            HandleAddGame(newGame)
+          });
           setgameName("")
           setgameScore("")
           setgameCompletionPercentage("")
