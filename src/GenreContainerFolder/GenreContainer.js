@@ -12,7 +12,7 @@ function GenreContainer({genres, setGenres, genreform, setGenreForm}) {
     )
   }) 
 
-  function HandleAddGenre(newGenre){
+  function handleAddGenre(newGenre){
     setGenres([ newGenre, ...genres ])
   }
 
@@ -24,7 +24,7 @@ function GenreContainer({genres, setGenres, genreform, setGenreForm}) {
             {genreform ? (
               <div> {genrecards}</div>
               ): (
-              <GenreForm HandleAddGenre={HandleAddGenre} genreform={genreform} setGenreForm={setGenreForm}/>
+              <GenreForm handleAddGenre={handleAddGenre} genreform={genreform} setGenreForm={setGenreForm}/>
             )}
     </div>
   )

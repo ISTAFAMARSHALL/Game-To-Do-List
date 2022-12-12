@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const GenreForm = ({HandleAddGenre, genreform, setGenreForm}) => {
+const GenreForm = ({handleAddGenre, genreform, setGenreForm}) => {
 
     const [genreName, setGenreName] = useState("");
 
@@ -19,7 +19,7 @@ const GenreForm = ({HandleAddGenre, genreform, setGenreForm}) => {
           body: JSON.stringify(newGenreInfo)
       })
           .then((r) => r.json())
-          .then((newGenreInfo) => HandleAddGenre(newGenreInfo));
+          .then((newGenreInfo) => handleAddGenre(newGenreInfo));
           setGenreName("")
           setGenreForm(!genreform)
     }
