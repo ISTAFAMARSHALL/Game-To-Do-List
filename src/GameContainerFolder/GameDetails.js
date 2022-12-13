@@ -9,6 +9,17 @@ function GameDetails({games, genres, setGenres, setGames}) {
 
   function handleGameDelete(gameDetail){
 
+    const filterOldGenres = genres.filter((e) => e.id !== parseInt(gameDetail.genre_id));
+    const oldgenre = genres.filter((e) => e.id === parseInt(gameDetail.genre_id));
+    const oldgenreGames = oldgenre[0].games.map((g) => g)
+    const filteredOldGenreGames = oldgenreGames.filter((g) => g.id !== gameDetail.id )
+
+    const updatedoldgenre = {
+      id:oldgenre[0].id,
+      name:oldgenre[0].name,
+      games:filteredOldGenreGames
+    }
+
     const deletedGame = games.filter((e) => e.id !== parseInt(gameDetail.id));
 
     fetch(`http://localhost:9292/games/${gameDetail.id}`, {
@@ -16,7 +27,7 @@ function GameDetails({games, genres, setGenres, setGames}) {
     })
 
     setGames(deletedGame);
-
+    setGenres([...filterOldGenres,updatedoldgenre])
     history.push("/games");
   }
   
