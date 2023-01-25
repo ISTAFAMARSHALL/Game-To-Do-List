@@ -46,7 +46,7 @@ function EditGameDetalis({game, genres, setGenres, handleUpdategame}) {
       games:[...newgenreGames,updatedGameInfo]
     }
 
-    const updatedsamegenre = {
+    const updatedgamegenre = {
       id:newgenre[0].id,
       name:newgenre[0].name,
       games:[...filteredOldGenreGames,updatedGameInfo]
@@ -77,7 +77,9 @@ function EditGameDetalis({game, genres, setGenres, handleUpdategame}) {
       //       }
       //     }
       //   })})
-      parseInt(oldGameGenre) === parseInt(gameGenre) ? setGenres([...filterOldGenres,...updatedsamegenre]) : setGenres([...filterNewGenres,updatedoldgenre,updatednewgenre])
+
+
+      parseInt(oldGameGenre) === parseInt(gameGenre) ? setGenres([...filterOldGenres,updatedgamegenre]) : setGenres([...filterNewGenres,updatedoldgenre,updatednewgenre])
       history.push("/games")
   }
 
